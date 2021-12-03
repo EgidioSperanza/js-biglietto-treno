@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ----CSS---- -->
     <link rel="stylesheet" href="./css/style.css">
+    <!-- ----FAVICON---- -->
+    <link rel="icon" type="image/ico" href="./img/train.ico"/>
+
     <title>Train Ticket - Booltrain</title>
 </head>
 <body>
@@ -20,7 +23,9 @@
                 <label for="user_age">Quanti anni ha il passeggero?</label>
                 <input type="text" name="user_age" id="user_age">
             </div>
-            <input class="price_btn" type="button" value="Calcola il prezzo" onClick="ticketPriceCalc()">
+            <div class="f_row">
+                <input class="price_btn" type="button" value="Calcola il prezzo" onClick="ticketPriceCalc()">
+            </div>
             <div id="output"></div>
         </form>
     </div>

@@ -24,7 +24,13 @@ form{
     padding: 20px 0;
 }
 
-input{
+.f_row::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+input:not(.price_btn){
     margin: 10px 0;
     width: 100%;
     display: block;
@@ -36,7 +42,14 @@ input{
     padding: 20px;
     background-color: #95D993;
     border-radius: 40px ;
-    border: 1px solid #93D9BA;
+    border: 1px solid #457560;
+    float:right;
+}
+
+.price_btn:hover{
+    background-color: #599757;
+    border: 1px solid #243b31;
+    transition: all 1s;
 }
 
 ::placeholder{

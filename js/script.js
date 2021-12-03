@@ -25,18 +25,6 @@ function ticketPriceCalc(){
     // console.log(distanceTravel);//DEBUG
     // console.log(userAge);//DEBUG
 
-
-    //Pensavo di fare una furbata e invece bocciato
-    // switch(true){
-    //     case (userAge<18):
-    //         discount=0.2;
-    //         break;
-    //     case (userAge>=65):
-    //         discount=0.4;
-    //         break;
-    //     default:
-    //         discount=0;
-    // }
     if(checkAll()){
         if(userAge<18){
             discount=0.2;
@@ -84,10 +72,6 @@ function checkAll(){
     } else{ return false;}
 }
 
-// function round(num) {
-//     var m = Number((Math.abs(num) * 100).toPrecision(4));
-//     return Math.round(m) / 100 * Math.sign(num);
-// }
 function round(num) {
     n = Math.round(num  * 100) / 100;
     return n;
