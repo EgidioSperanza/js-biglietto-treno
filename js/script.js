@@ -17,58 +17,71 @@ const costXkm = 0.21;
 let distanceTravel;
 let userAge;
 let discount;
-let check;
 
 function ticketPriceCalc(){
     distanceTravel= distance.value;
     userAge= age.value;
-    console.log(distanceTravel);//DEBUG
-    console.log(userAge);//DEBUG
+    outputHtml.style.display = "none";
+    // console.log(distanceTravel);//DEBUG
+    // console.log(userAge);//DEBUG
 
-    isANum(distanceTravel,distance);
-    isANum(userAge,age);
-    emptyValue(distanceTravel,distance);
-    emptyValue(userAge,age);
 
-    switch(true){
-        case (userAge<18):
+    //Pensavo di fare una furbata e invece bocciato
+    // switch(true){
+    //     case (userAge<18):
+    //         discount=0.2;
+    //         break;
+    //     case (userAge>=65):
+    //         discount=0.4;
+    //         break;
+    //     default:
+    //         discount=0;
+    // }
+    if(checkAll()){
+        if(userAge<18){
             discount=0.2;
-            break;
-        case (userAge>=65):
+        } else if (userAge>=65){
             discount=0.4;
-            break;
-        default:
-            discount=0;
-    }
-
-    let ticketPrice= distanceTravel*costXkm;
-
-    ticketPrice = round(ticketPrice-(ticketPrice*discount));
-    if(check) {
+        } else discount=0;
+    
+        let ticketPrice= distanceTravel*costXkm;
+    
+        ticketPrice = round(ticketPrice-(ticketPrice*discount));
+        outputHtml.style.display = "block";
         outputHtml.innerHTML = `Il biglietto per percorrere ${distanceTravel}Km, costerà ${ticketPrice} &euro;`
-    }
+        }
 }
 
 function isANum(num, e){
     if (isNaN(num)){
         e.value="";
         e.placeholder = "Digita un numero senza usare caratteri"
-        check=false;
+        return false
     } else{
-        check=true;
+        return true;
         //  console.log(`${num} is a num`)//DEBUG
-     }
+        }
 }
 
 function emptyValue(aValue, e){
     if(aValue.length===0){
         e.value="";
         e.placeholder = "Digita un numero senza usare caratteri"
-        check=false;
+        return false;
     }
     else{
-        check=true;
+        return true;
     }
+}
+
+function checkAll(){
+    if(isANum(distanceTravel,distance) && 
+    isANum(userAge,age) && 
+    emptyValue(distanceTravel,distance) &&
+    emptyValue(userAge,age)
+    ){
+        return true;
+    } else{ return false;}
 }
 
 function round(num) {
