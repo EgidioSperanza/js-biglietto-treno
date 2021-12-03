@@ -84,7 +84,11 @@ function checkAll(){
     } else{ return false;}
 }
 
+// function round(num) {
+//     var m = Number((Math.abs(num) * 100).toPrecision(4));
+//     return Math.round(m) / 100 * Math.sign(num);
+// }
 function round(num) {
-    var m = Number((Math.abs(num) * 100).toPrecision(4));
-    return Math.round(m) / 100 * Math.sign(num);
+    n = Math.round(num  * 100) / 100;
+    return n;
 }
