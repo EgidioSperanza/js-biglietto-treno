@@ -54,9 +54,10 @@ function isANum(num, e){
         e.value="";
         e.placeholder = "Digita un numero senza usare caratteri"
         check=false;
-    }// else{
-    //     console.log(`${num} is a num`)//DEBUG
-    // }
+    } else{
+        check=true;
+        //  console.log(`${num} is a num`)//DEBUG
+     }
 }
 
 function emptyValue(aValue, e){
@@ -64,6 +65,9 @@ function emptyValue(aValue, e){
         e.value="";
         e.placeholder = "Digita un numero senza usare caratteri"
         check=false;
+    }
+    else{
+        check=true;
     }
 }
 

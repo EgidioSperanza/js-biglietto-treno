@@ -42,3 +42,9 @@ input{
 ::placeholder{
     color: red;
 }
+
+#output{
+    background-color: #F8F580;
+    padding: 10px;
+    border-radius: 15px;
+}
