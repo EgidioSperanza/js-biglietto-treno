@@ -46,40 +46,31 @@ function ticketPriceCalc(){
     }
 }
 
-function isANum(num, e, e2){
+function isANum(num, e){
     if (isNaN(num)){
         e.value="";
-        e2.value="";
         e.placeholder = "Digita un numero senza usare caratteri"
-        e2.placeholder = "Digita un numero senza usare caratteri"
         return false
-    } else{
-        return true;
-        //  console.log(`${num} is a num`)//DEBUG
-        }
+    }
+    return true;
 }
 
-function emptyValue(aValue, e, e2){
+function emptyValue(aValue, e){
     if(aValue.length===0 || aValue<1){
         e.value="";
-        e2.value="";
         e.placeholder = "Digita un numero senza usare caratteri"
-        e2.placeholder = "Digita un numero senza usare caratteri"
         return false;
     }
-    else{
-        return true;
-    }
+    return true;
 }
 
 function checkAll(){
-    if(isANum(distanceTravel,distance,age) && 
-    isANum(userAge,distance,age) && 
-    emptyValue(distanceTravel,distance,age) &&
-    emptyValue(userAge,distance,age)
-    ){
-        return true;
-    } else{ return false;}
+    if(isANum(distanceTravel,distance) && 
+    isANum(userAge,age) && 
+    emptyValue(distanceTravel,distance) &&
+    emptyValue(userAge,age)
+    ){return true;} 
+    return false;
 }
 
 function round(num) {
