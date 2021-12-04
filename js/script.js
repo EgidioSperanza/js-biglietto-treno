@@ -33,17 +33,25 @@ function ticketPriceCalc(){
         } else discount=0;
     
         let ticketPrice= distanceTravel*costXkm;
-    
-        ticketPrice = round(ticketPrice-(ticketPrice*discount));
-        outputHtml.style.display = "block";
-        outputHtml.innerHTML = `Il biglietto per percorrere ${distanceTravel}Km, costerà ${ticketPrice} &euro;`
+        if (discount>0){
+            let noDiscountedPrice = ticketPrice;
+            ticketPrice = round(ticketPrice-(ticketPrice*discount));
+            outputHtml.style.display = "block";
+            outputHtml.innerHTML = `Il biglietto per percorrere ${distanceTravel}Km, costerà <span class="offert">${noDiscountedPrice}</span> ${ticketPrice} &euro;`
+        } else {
+            ticketPrice = round(ticketPrice);
+            outputHtml.style.display = "block";
+            outputHtml.innerHTML = `Il biglietto per percorrere ${distanceTravel}Km, costerà ${ticketPrice} &euro;`
         }
+    }
 }
 
-function isANum(num, e){
+function isANum(num, e, e2){
     if (isNaN(num)){
         e.value="";
+        e2.value="";
         e.placeholder = "Digita un numero senza usare caratteri"
+        e2.placeholder = "Digita un numero senza usare caratteri"
         return false
     } else{
         return true;
@@ -51,10 +59,12 @@ function isANum(num, e){
         }
 }
 
-function emptyValue(aValue, e){
-    if(aValue.length===0){
+function emptyValue(aValue, e, e2){
+    if(aValue.length===0 || aValue<1){
         e.value="";
+        e2.value="";
         e.placeholder = "Digita un numero senza usare caratteri"
+        e2.placeholder = "Digita un numero senza usare caratteri"
         return false;
     }
     else{
@@ -63,10 +73,10 @@ function emptyValue(aValue, e){
 }
 
 function checkAll(){
-    if(isANum(distanceTravel,distance) && 
-    isANum(userAge,age) && 
-    emptyValue(distanceTravel,distance) &&
-    emptyValue(userAge,age)
+    if(isANum(distanceTravel,distance,age) && 
+    isANum(userAge,distance,age) && 
+    emptyValue(distanceTravel,distance,age) &&
+    emptyValue(userAge,distance,age)
     ){
         return true;
     } else{ return false;}
