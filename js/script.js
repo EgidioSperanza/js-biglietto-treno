@@ -37,7 +37,7 @@ function ticketPriceCalc(){
             let noDiscountedPrice = ticketPrice;
             ticketPrice = round(ticketPrice-(ticketPrice*discount));
             outputHtml.style.display = "block";
-            outputHtml.innerHTML = `Il biglietto per percorrere ${distanceTravel}Km, costerà <span class="offert">${noDiscountedPrice}</span> ${ticketPrice} &euro;`
+            outputHtml.innerHTML = `Il biglietto per percorrere ${distanceTravel}Km, costerà <span class="full_price">${noDiscountedPrice}</span> ${ticketPrice} &euro;`
         } else {
             ticketPrice = round(ticketPrice);
             outputHtml.style.display = "block";

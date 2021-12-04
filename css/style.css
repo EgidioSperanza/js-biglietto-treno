@@ -63,7 +63,7 @@ input:not(.price_btn){
     display: none;
 }
 
-.offert{
+.full_price{
     color: darkred;
     text-decoration: line-through;
     font-weight: 900;
