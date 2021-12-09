@@ -77,6 +77,6 @@ function checkAll(){
 }
 
 function round(num) {
-    n = Math.round(num  * 100) / 100;
+    n = num.toFixed(2);
     return n;
 }
