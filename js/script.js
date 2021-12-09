@@ -22,6 +22,9 @@ let distanceTravel;
 let userAge;
 let discount;
 
+distance.value='';
+age.value='';
+
 priceButton.addEventListener('click', () =>{
     distanceTravel= distance.value;
     userAge= age.value;
