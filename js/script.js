@@ -16,12 +16,13 @@ const age = document.getElementById('user_age');
 const costXkm = 0.21;
 const discountUnderAge=0.2;
 const discountSenior=0.4;
+const priceButton = document.getElementById('price_btn');
 
 let distanceTravel;
 let userAge;
 let discount;
 
-function ticketPriceCalc(){
+priceButton.addEventListener('click', () =>{
     distanceTravel= distance.value;
     userAge= age.value;
     outputHtml.style.display = "none";
@@ -47,7 +48,7 @@ function ticketPriceCalc(){
             outputHtml.innerHTML = `Il biglietto per percorrere ${distanceTravel}Km, costerà ${ticketPrice} &euro;`
         }
     }
-}
+})
 
 function isANum(num, e){
     if (isNaN(num)){
@@ -80,3 +81,4 @@ function round(num) {
     n = Math.round(num  * 100) / 100;
     return n;
 }
+
