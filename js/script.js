@@ -14,6 +14,9 @@ const outputHtml = document.getElementById('output');
 const distance = document.getElementById('distance');
 const age = document.getElementById('user_age');
 const costXkm = 0.21;
+const discountUnderAge=0.2;
+const discountSenior=0.4;
+
 let distanceTravel;
 let userAge;
 let discount;
@@ -27,9 +30,9 @@ function ticketPriceCalc(){
 
     if(checkAll()){
         if(userAge<18){
-            discount=0.2;
+            discount=discountUnderAge;
         } else if (userAge>=65){
-            discount=0.4;
+            discount=discountSenior
         } else discount=0;
     
         let ticketPrice= distanceTravel*costXkm;
